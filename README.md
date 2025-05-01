@@ -1,15 +1,15 @@
-# 🌍 NASA NEO (Near-Earth Object)  🚀
+## 🌍 NASA NEO (Near-Earth Object)  🚀
 
-This project fetches data from NASA's Near-Earth Object Web Service (NeoWs) API, stores it in a MySQL database, and can be visualized using a Streamlit-based web dashboard.
+This project fetches data from NASA's Near-Earth Object Web Service (NeoWs) API, stores it in a MySQL database, and visualized using a Streamlit-based web dashboard.
 
 ---
 
 ## 📌 Features
 
 - ✅ Fetches asteroid data using NASA's NEO Feed API
-- ✅ Parses and filters essential details like size, velocity, and proximity
+- ✅ Parses and filters details like size, velocity, and proximity
 - ✅ Stores asteroid and approach data into structured MySQL tables
-- ✅ Streamlit dashboard (optional) for viewing and analyzing asteroid threats
+- ✅ Streamlit dashboard for viewing and analyzing asteroid threats
 
 ---
 
@@ -22,7 +22,6 @@ This project fetches data from NASA's Near-Earth Object Web Service (NeoWs) API,
 - **Streamlit** – For building the UI dashboard
 - **NASA Open API** – Data source
 
----
 
 ## 📁 Project Structure
 
@@ -34,19 +33,7 @@ Edit
 
 ---
 
-## ⚙️ Setup Instructions
 
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/yourusername/NASA-NEO-Streamlit-MySQL.git
-cd NASA-NEO-Streamlit-MySQL
-2. Install dependencies
-bash
-Copy
-Edit
-pip install -r requirements.txt
-Ensure MySQL is installed and running on your system.
 
 3. Configure MySQL Database
 Create a database (e.g., ds)

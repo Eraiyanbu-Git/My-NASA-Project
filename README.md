@@ -22,16 +22,21 @@ This project fetches data from NASA's Near-Earth Object Web Service (NeoWs) API,
 - **Streamlit** – For building the UI dashboard
 - **NASA Open API** – Data source
 --- 
-## 📁 Project Structure 
+**📁 Project Structure **
+
 NASA_NEO_Project 
-NasaScript.py - Python script to fetch & store asteroid data 
-Dashboard.py - Streamlit app to visualize asteroid info 
+1. NasaScript.py - Python script to fetch & store asteroid data 
+2. Dashboard.py - Streamlit app to visualize asteroid info 
 --- 
 ## ⚙️ Setup Instructions
-1. Configure MySQL Database
+
+**1. Configure MySQL Database**
+
 Create a database with Asteroid and Close_approach Tables and
 Populate them with up to 10,000 records
-2. Update credentials in NasaScript.py:
+
+**2. Update credentials in NasaScript.py:**
+
 connection = db.connect(
 	host='localhost',
 
@@ -42,15 +47,15 @@ connection = db.connect(
 	database='YOUR_DATABASE_NAME')
 
 
-3. Run Data Fetch Script
+**3. Run Data Fetch Script**
 
 NasaScript.py
 
 This will: Fetch asteroid data from NASA API
    
-📊 Database Schema
+**📊 Database Schema**
 
-**Asteroids table:
+**Asteroids table:**
 
 **Column**                            **Type**
 

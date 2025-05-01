@@ -1,106 +1,112 @@
-# 🌍 NASA NEO (Near-Earth Object) Data Pipeline 🚀
+# 🌍 NASA NEO (Near-Earth Object) 🚀
 
-This project fetches data from NASA's Near-Earth Object Web Service (NeoWs) API, stores it in a MySQL database, and can be visualized using a Streamlit-based web dashboard. 
---- 
-## 📌 Features 
-- ✅ Fetches asteroid data using NASA's NEO Feed API
+This project fetches data from NASA's Near-Earth Object Web Service (NeoWs) API, stores it in a MySQL database, and can be visualized using a Streamlit-based web dashboard.
 
-- ✅ Parses and filters essential details like size, velocity, and proximity
+---
 
-- ✅ Stores asteroid and approach data into structured MySQL tables
-- ✅ Streamlit dashboard (optional) for viewing and analyzing asteroid threats 
---- 
+## 📌 Features
+
+- ✅ Fetches asteroid data using NASA's NEO Feed API  
+- ✅ Parses and filters essential details like size, velocity, and proximity  
+- ✅ Stores asteroid and approach data into structured MySQL tables  
+- ✅ Streamlit dashboard (optional) for viewing and analyzing asteroid threats  
+
+---
+
 ## 🛠 Technologies Used
-- **Python 3.11+**
 
-- **Requests** – For API calls
+- **Python 3.11+**  
+- **Requests** – For API calls  
+- **MySQL** – Backend database  
+- **mysql-connector-python** – Python MySQL driver  
+- **Streamlit** – For building the UI dashboard  
+- **NASA Open API** – Data source  
 
-- **MySQL** – Backend database
+---
 
-- **mysql-connector-python** – Python MySQL driver
+## 📁 Project Structure
 
-- **Streamlit** – For building the UI dashboard
-- **NASA Open API** – Data source
---- 
-**📁 Project Structure **
-
-NASA_NEO_Project 
-1. NasaScript.py - Python script to fetch & store asteroid data 
+ NASA_NEO_Project
+1.  NasaScript.py - Python script to fetch & store asteroid data 
 2. Dashboard.py - Streamlit app to visualize asteroid info 
---- 
+---
+
 ## ⚙️ Setup Instructions
 
-**1. Configure MySQL Database**
+### 1. Configure MySQL Database
 
-Create a database with Asteroid and Close_approach Tables and
-Populate them with up to 10,000 records
+Create a database named (e.g., `ds`) and ensure the following tables are created:
 
-**2. Update credentials in NasaScript.py:**
+- `asteroids`
+- `close_approach`
 
+These will store up to 10,000 asteroid records fetched via the NASA API.
+
+### 2. Update Database Credentials
+
+Edit the `NasaScript.py` with your MySQL configuration:
+
+python
 connection = db.connect(
-	host='localhost',
+    host='localhost',
+    user='root',
+    password='YOUR_PASSWORD',
+    database='YOUR_DATABASE_NAME'
+)
 
-	user='root',
+### 3. Run the Data Fetch Script
 
-	password='YOUR_PASSWORD',
+python NasaScript.py
 
-	database='YOUR_DATABASE_NAME')
+This will:
 
+Fetch asteroid data from NASA's API
 
-**3. Run Data Fetch Script**
+Parse and transform the data
 
-NasaScript.py
+Populate the MySQL tables with structured entries
 
-This will: Fetch asteroid data from NASA API
-   
-**📊 Database Schema**
+### 📊 Database Schema
 
-**Asteroids table:**
+Asteroids Table
 
-**Column**                            **Type**
+| Column                        | Type      |
+|------------------------------|-----------|
+| id                           | BIGINT    |
+| name                         | VARCHAR   |
+| absolute_magnitude_h         | FLOAT     |
+| estimated_diameter_min_km    | FLOAT     |
+| estimated_diameter_max_km    | FLOAT     |
+| is_potentially_hazardous_asteroid | BOOLEAN |
 
-Id	                                   BIGINT
+close_approach_date
 
-Name	                               VARCHAR
+| Column              | Type   |
+|---------------------|--------|
+| neo_reference_id    | INT    |
+| close_approach_date | DATE   |
+| relative_velocity_kmph | FLOAT |
+| AU                  | FLOAT  |
+| miss_distance_km    | FLOAT  |
+| miss_distance_lunar | FLOAT  |
+| orbiting_body       | TEXT   |
 
-Absolute_magnitude_h	               FLOAT
+### 🔑 NASA API Key
+You can obtain a free API key from https://api.nasa.gov.
+Replace the API_KEY placeholder in your script with your actual key:
 
-Estimated_diameter_min_km              FLOAT
+API_KEY = "your_actual_nasa_api_key"
 
-Estimated_diameter_max_km	           FLOAT
+## 📌 Sample Use Cases
 
-Is_potentially_hazardous_asteroid	   BOOLEAN
- 
-**close_approach table:
+1.  Astronomical research
 
-**Column**	                           **Type**
+2. Hazardous NEO threat analysis
 
-Neo_reference_id	                     BIGINT
+3. Educational visualizations
 
-Close_approach_date	                     DATE
+4. Historical data insights
 
-Relative_velocity_kmph	                 FLOAT
-
-AU	                                     FLOAT
- 
-Miss_distance_km	                     FLOAT
-
-Miss_distance_lunar			             FLOAT
-
-Orbiting_body				             TEXT
- 
-🔑 NASA API Key
-
-You can get a free NASA API key from: https://api.nasa.gov
-Replace the placeholder API_KEY in your script with your own key:
- 
-📌 Sample Use Cases
-
-Astronomical research 
-Hazard analysis
-Educational visualization tools
-Historical data insights on NEOs
- 
-🙋‍♂️ Author
-Eraiyanbu 
+## 🙋‍♂️ Author
+### Eraiyanbu 
 GitHub: Eraiyanbu-Git
